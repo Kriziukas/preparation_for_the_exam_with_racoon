@@ -1,0 +1,18 @@
+E-mail,Name,Password,ConfirmPassword,ErrorMessage
+userEmailCsv,userNameCsv,userPasswordCsv,userConfirmPasswordCsv,errorMessageCsv
+,ValidName,ValidPassword123,ValidPassword123,Email is required
+ ,ValidName,ValidPassword123,ValidPassword123,Email address is invalid
+*,ValidName,ValidPassword123,ValidPassword123,Email address is invalid
+10,ValidName,ValidPassword123,ValidPassword123,Email address is invalid
+invalid@one,ValidName,ValidPassword123,ValidPassword123,Email address is invalid
+invalid.one.lt,ValidName,ValidPassword123,ValidPassword123,Email address is invalid
+invalidone.lt,ValidName,ValidPassword123,ValidPassword123,Email address is invalid
+invalid@@one.lt,ValidName,ValidPassword123,ValidPassword123,Email address is invalid
+valid@one.lt,aaa,ValidPassword123,ValidPassword123,User name should be between 4 and 30 characters
+valid@one.lt,*,ValidPassword123,ValidPassword123,User name should be between 4 and 30 characters
+valid@one.lt, ,ValidPassword123,ValidPassword123,User name should be between 4 and 30 characters
+valid@one.lt,InvalidName123456789012345678901234567890123456789012345678901234567890,ValidPassword123,ValidPassword123,User name should be between 4 and 30 characters
+valid@one.lt,ValidName,ValidPassword,ValidPassword,Password should be between 6 and 30 characters valid@one.lt,ValidName,ValidPasswo,ValidPassword,Password should be between 6 and 30 characters valid@one.lt,ValidName,ValidPassword123,ValidPass,Password should be between 6 and 30 characters
+valid@one.lt,ValidName,@,@,Password should be between 6 and 30 characters
+valid@one.lt,ValidName,ValidPassword123,ValidPassword,Passwords don't match!
+
