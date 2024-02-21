@@ -4,6 +4,8 @@ import lt.techin.kristinaglebenkoviene.utils.TestUtils;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.logging.Logger;
 
@@ -39,6 +41,8 @@ public class RegisterPageTest extends BasePageTest {
 //        registerPage.enterInputEmail(emailAddress);
 //        registerPage.enterInputEmail(TestUtils.getRandomEmail());
         registerPage.enterInputEmail(TestUtils.getRandomEmailSimple());
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[.='Register']")));
+//        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h1[.='Register']")));
 
         registerPage.enterInputName(userName);
         registerPage.enterInputPassword(userPassword);
@@ -48,6 +52,7 @@ public class RegisterPageTest extends BasePageTest {
 
         successfullyRegisterPage.clickButtonClickHereToLogIn();
         assertEquals("Login", loginPage.getTextOfElementLogin(), "Login Page Element should have text 'Login'");
+
 
         log.info("Registration test with a new user is successfully!");
         log.info("Ačiū už egzaminą!");
@@ -95,6 +100,15 @@ public class RegisterPageTest extends BasePageTest {
 
         assertTrue(registerPage.isErrorMessageDisplayed(errorMessageCsv), "Error Message: " + errorMessageCsv);
         System.out.println("Error Message: " + errorMessageCsv);
+    }
+
+    @Test
+    void linkSplit() {
+        mainPage = new MainPage(driver);
+        registerPage = new RegisterPage(driver);
+
+        mainPage.clickButtonCreateAnAccount();
+        System.out.println(registerPage.getPartOfTheTextOfLinkHomeMyNotes());
     }
 
 

@@ -38,6 +38,18 @@ public class RegisterPage extends BasePage {
     @FindBy(xpath = "//div[@class='invalid-feedback']")
     List<WebElement> registrationOfAllErrorMessages;
 
+    @FindBy(xpath = "//a[@href='/notes/app/']")
+    WebElement linkHomeMyNotes;
+
+    public String getTextOfLinkHomeMyNotes(){
+        return linkHomeMyNotes.getText();
+    }
+
+    public String getPartOfTheTextOfLinkHomeMyNotes() {
+        return getTextOfLinkHomeMyNotes().split(" - ")[1].trim();
+    }
+
+
     public void enterInputEmail(String emailAddress) {
         inputEmail.sendKeys(emailAddress);
     }
